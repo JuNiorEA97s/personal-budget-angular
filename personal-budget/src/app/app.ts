@@ -7,7 +7,7 @@ import { Footer } from './footer/footer';
 
 @Component({
   selector: 'pb-root',
-  imports: [RouterOutlet, Menu, Hero, Footer],
+  imports: [RouterOutlet, Menu],
   templateUrl: './app.html',
   styleUrl: './app.scss'
 })

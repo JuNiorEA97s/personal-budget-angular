@@ -1,72 +1,47 @@
-<a href="#main" class="skip">Skip to content</a>
+<pb-hero></pb-hero>
 
-<main class="center" id="main" tabindex="-1">
+<main class="center" id="main" tabindex="-1" ngSkipHydration>
   <div class="page-area">
-
     <article>
       <h2>Stay on track</h2>
-      <p>
-        Do you know where you are spending your money? If you really stop to track it down,
-        you would get surprised! Proper budget management depends on real data... and this
-        app will help you with that!
-      </p>
+      <p>Do you know where you are spending your money? If you really stop to track it down, you would get surprised! Proper budget management depends on real data... and this app will help you with that!</p>
     </article>
 
     <article>
       <h2>Alerts</h2>
-      <p>
-        What if your clothing budget ended? You will get an alert. The goal is to never go over the budget.
-      </p>
+      <p>What if your clothing budget ended? You will get an alert. The goal is to never go over the budget.</p>
     </article>
 
     <article>
       <h2>Results</h2>
-      <p>
-        People who stick to a financial plan, budgeting every expense, get out of debt faster!
-        Also, they to live happier lives... since they expend without guilt or fear...
-        because they know it is all good and accounted for.
-      </p>
+      <p>People who stick to a financial plan, budgeting every expense, get out of debt faster! Also, they to live happier lives... since they expend without guilt or fear... because they know it is all good and accounted for.</p>
     </article>
 
     <article>
       <h2>Free</h2>
-      <p>
-        This app is free!!! And you are the only one holding your data!
-      </p>
+      <p>This app is free!!! And you are the only one holding your data!</p>
     </article>
 
     <article>
       <h2>Stay on track</h2>
-      <p>
-        Do you know where you are spending your money? If you really stop to track it down,
-        you would get surprised! Proper budget management depends on real data... and this
-        app will help you with that!
-      </p>
+      <p>Do you know where you are spending your money? If you really stop to track it down, you would get surprised! Proper budget management depends on real data... and this app will help you with that!</p>
     </article>
 
     <article>
       <h2>Alerts</h2>
-      <p>
-        What if your clothing budget ended? You will get an alert. The goal is to never go over the budget.
-      </p>
+      <p>What if your clothing budget ended? You will get an alert. The goal is to never go over the budget.</p>
     </article>
 
     <article>
       <h2>Results</h2>
-      <p>
-        People who stick to a financial plan, budgeting every expense, get out of debt faster!
-        Also, they to live happier lives... since they expend without guilt or fear...
-        because they know it is all good and accounted for.
-      </p>
+      <p>People who stick to a financial plan, budgeting every expense, get out of debt faster! Also, they to live happier lives... since they expend without guilt or fear... because they know it is all good and accounted for.</p>
     </article>
 
-    <!-- Chart -->
     <article>
       <h2>Chart</h2>
       <figure>
         <p>
           <canvas
-            #chartCanvas
             id="myChart"
             width="400"
             height="400"
@@ -77,11 +52,7 @@
         </p>
         <figcaption id="chart-desc">Visualization of budget categories and their amounts.</figcaption>
       </figure>
-
-      <noscript>
-        <p>The budget chart requires JavaScript. Please enable JavaScript to view the chart.</p>
-      </noscript>
+      <noscript ngSkipHydration><p>The budget chart requires JavaScript. Please enable JavaScript to view the chart.</p></noscript>
     </article>
-
   </div>
 </main>
