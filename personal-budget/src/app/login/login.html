@@ -1,0 +1,12 @@
+<main class="center">
+  <h1>Login</h1>
+  <form class="login" (submit)="$event.preventDefault()">
+    <label>Username
+      <input type="text" name="username" autocomplete="username" required>
+    </label>
+    <label>Password
+      <input type="password" name="password" autocomplete="current-password" required>
+    </label>
+    <button type="submit">Sign In</button>
+  </form>
+</main>
