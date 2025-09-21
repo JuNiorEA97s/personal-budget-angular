@@ -1,0 +1,5 @@
+.crumbs { font-size: 0.95rem; padding: 8px 0 16px; }
+.crumbs ol { margin: 0; padding: 0; list-style: none; display: flex; gap: .5rem; }
+.crumbs li::after { content: "›"; margin-left: .5rem; }
+.crumbs li:last-child::after { content: ""; }
+.crumbs a { text-decoration: none; }

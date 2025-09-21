@@ -1,28 +1,29 @@
 import { AfterViewInit, Component, inject, PLATFORM_ID } from '@angular/core';
 import { isPlatformBrowser, CommonModule } from '@angular/common';
 import { firstValueFrom } from 'rxjs';
-import { BudgetService, BudgetItem } from '../services/budget.service';
+import { DataService, BudgetItem } from '../services/data.service';
 import { Hero } from '../hero/hero';
+import { Breadcrumbs } from '../breadcrumbs/breadcrumbs';
+import { D3Chart } from '../d3chart/d3chart';
 
 @Component({
   selector: 'pb-homepage',
   standalone: true,
-  imports: [CommonModule, Hero],
+  imports: [CommonModule, Hero, Breadcrumbs, D3Chart],
   templateUrl: './homepage.html',
   styleUrl: './homepage.scss',
   host: { 'ngSkipHydration': '' }
 })
 export class Homepage implements AfterViewInit {
   private readonly platformId = inject(PLATFORM_ID);
-  constructor(private budget: BudgetService) {}
+  constructor(private data: DataService) {}
 
   async ngAfterViewInit(): Promise<void> {
     if (!isPlatformBrowser(this.platformId)) return;
-
     setTimeout(async () => {
       let items: BudgetItem[] = [];
       try {
-        items = await firstValueFrom(this.budget.getBudget());
+        items = await firstValueFrom(this.data.getBudget());
       } catch {
         items = [
           { title: 'Eat out',  budget: 25 },
@@ -31,20 +32,15 @@ export class Homepage implements AfterViewInit {
           { title: 'Gas',      budget: 50 }
         ];
       }
-
       const el = document.getElementById('myChart') as HTMLCanvasElement | null;
       if (!el) return;
-
       const ctx = el.getContext('2d');
       if (!ctx) return;
-
       const { Chart } = await import('chart.js/auto');
       new Chart(ctx, {
         type: 'pie',
-        data: {
-          labels: items.map(i => i.title),
-          datasets: [{ data: items.map(i => i.budget) }]
-        }
+        data: { labels: items.map(i => i.title), datasets: [{ data: items.map(i => i.budget) }] },
+        options: { responsive: true, plugins: { legend: { display: true } } }
       });
     }, 0);
   }
