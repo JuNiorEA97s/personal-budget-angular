@@ -45,7 +45,6 @@ export class D3Chart implements AfterViewInit {
       .attr('width', () => x.bandwidth())
       .attr('height', (d: BudgetItem) => y(0) - y(d.budget));
 
-    // Keep axis callbacks untyped to avoid D3 generic mismatches
     const xAxis = (g: any) => g
       .attr('transform', `translate(0,${height - margin.bottom})`)
       .call(d3.axisBottom(x).tickSizeOuter(0));
